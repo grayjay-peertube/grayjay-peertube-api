@@ -1,3 +1,4 @@
+using System.ComponentModel.DataAnnotations;
 using GrayjayPeerTube.Application.Services;
 using GrayjayPeerTube.Domain.Exceptions;
 using Microsoft.AspNetCore.Mvc;
@@ -25,7 +26,7 @@ public class PluginConfigController : ControllerBase
     /// </summary>
     [HttpGet("PluginConfig.json")]
     public async Task<IActionResult> GetPluginConfig(
-        [FromQuery] string? peerTubePlatformUrl,
+        [FromQuery][MaxLength(2048)] string? peerTubePlatformUrl,
         CancellationToken cancellationToken)
     {
         try

@@ -1,3 +1,4 @@
+using System.ComponentModel.DataAnnotations;
 using GrayjayPeerTube.Application.Services;
 using Microsoft.AspNetCore.Mvc;
 
@@ -20,7 +21,7 @@ public class ValidationController : ControllerBase
     /// </summary>
     [HttpGet("validatePeerTube")]
     public async Task<IActionResult> ValidatePeerTube(
-        [FromQuery] string? peerTubePlatformUrl,
+        [FromQuery][MaxLength(2048)] string? peerTubePlatformUrl,
         CancellationToken cancellationToken)
     {
         var result = await _validationService.ValidateInstanceAsync(
