@@ -1,0 +1,18 @@
+{
+  "name": "peertube-instances",
+  "healthchecks": {
+    "web": [
+      {
+        "type": "startup",
+        "name": "web check",
+        "path": "/version",
+        "attempts": 3
+      }
+    ]
+  },
+  "formation": {
+    "web": {
+      "port": 8080
+    }
+  }
+}
