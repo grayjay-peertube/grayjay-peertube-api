@@ -28,14 +28,7 @@ var app = builder.Build();
 app.UseMiddleware<GlobalExceptionMiddleware>();
 app.UseCors();
 
-// Static files (serves from wwwroot)
-app.UseDefaultFiles();
-app.UseStaticFiles();
-
 app.MapControllers();
-
-// Fallback to index.html for SPA-style routing
-app.MapFallbackToFile("index.html");
 
 app.Run();
 
