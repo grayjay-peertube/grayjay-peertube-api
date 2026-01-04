@@ -1,38 +1,28 @@
-# PeerTube Instances
+# PeerTube Instances API
 
 ## Description
-The PeerTube Instances is a tool designed to help users discover and explore various instances of the PeerTube video hosting platform and easily add them to the Grayjay app.
-
-It provides a user-friendly interface for browsing PeerTube instances, displaying key metrics such as the number of users, videos, and instance versions.
-
-## Components
-- **Frontend**: The frontend of the application is built using HTML, CSS, and JavaScript. It utilizes libraries such as Bootstrap, DataTables, and SweetAlert2 to create a responsive and interactive user interface.
-- **Backend**: The backend is implemented in .NET 10 using ASP.NET Core. It handles API requests for fetching PeerTube instance data and plugin configuration for Grayjay integration.
-- **Integration with Grayjay**: The application integrates with Grayjay, a PeerTube client, allowing users to easily add discovered instances to their Grayjay instance.
+A .NET 10 ASP.NET Core Web API that validates PeerTube instances and generates Grayjay plugin configurations.
 
 ## Project Structure
 
 ```
-├── public/                 # Frontend static files (HTML, CSS, JS)
-├── dotnet/                 # .NET backend
-│   ├── src/
-│   │   ├── GrayjayPeerTube.Api/           # ASP.NET Core Web API
-│   │   ├── GrayjayPeerTube.Application/   # Business logic & services
-│   │   ├── GrayjayPeerTube.Domain/        # Domain models & interfaces
-│   │   └── GrayjayPeerTube.Infrastructure/# HTTP clients & caching
-│   ├── tests/
-│   │   └── GrayjayPeerTube.Tests/         # xUnit tests
-│   └── docker/
-│       ├── Dockerfile
-│       └── docker-compose.yml
+├── src/
+│   ├── GrayjayPeerTube.Api/           # ASP.NET Core Web API
+│   ├── GrayjayPeerTube.Application/   # Business logic & services
+│   ├── GrayjayPeerTube.Domain/        # Domain models & interfaces
+│   └── GrayjayPeerTube.Infrastructure/# HTTP clients & caching
+├── tests/
+│   └── GrayjayPeerTube.Tests/         # xUnit tests
+└── docker/
+    └── docker-compose.yml
 ```
 
 ## API Endpoints
 
 | Endpoint | Description |
 |----------|-------------|
-| `GET /` | Serves the frontend application |
 | `GET /version` | Returns API version |
+| `GET /health` | Health check endpoint |
 | `GET /api/v1/validatePeerTube?peerTubePlatformUrl=` | Validates a PeerTube instance |
 | `GET /api/v1/PluginConfig.json?peerTubePlatformUrl=` | Returns Grayjay plugin configuration |
 
@@ -45,8 +35,6 @@ It provides a user-friendly interface for browsing PeerTube instances, displayin
 ### Development
 
 ```bash
-cd dotnet
-
 # Restore dependencies
 dotnet restore
 
@@ -62,13 +50,10 @@ The application will be available at `http://localhost:5000`.
 ### Docker
 
 ```bash
-cd dotnet/docker
+cd docker
 
 # Build and run
 docker-compose up --build
-
-# Or for production
-docker-compose -f docker-compose.yml up --build
 ```
 
 ### Environment Variables
