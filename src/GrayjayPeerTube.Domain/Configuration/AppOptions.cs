@@ -26,10 +26,10 @@ public class UpstreamConfigOptions
     public const string SectionName = "UpstreamConfig";
 
     public string UpstreamConfigUrl { get; set; } =
-        "https://plugins.grayjay.app/pre-release/PeerTube/PeerTubeConfig.json";
+        "https://plugins.grayjay.app/unstable/PeerTube/PeerTubeConfig.json";
 
     public string PluginBaseUrl { get; set; } =
-        "https://plugins.grayjay.app/pre-release/PeerTube";
+        "https://plugins.grayjay.app/unstable/PeerTube";
 
     public string IconUrl { get; set; } =
         "https://plugins.grayjay.app/PeerTube/peertube.png";
