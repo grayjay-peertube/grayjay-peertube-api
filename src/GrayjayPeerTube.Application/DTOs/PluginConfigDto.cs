@@ -45,6 +45,9 @@ public class PluginConfigDto
     [JsonPropertyName("authentication")]
     public PluginAuthenticationDto? Authentication { get; set; }
 
+    [JsonPropertyName("authenticationDesktop")]
+    public PluginAuthenticationDto? AuthenticationDesktop { get; set; }
+
     [JsonPropertyName("allowEval")]
     public bool? AllowEval { get; set; }
 

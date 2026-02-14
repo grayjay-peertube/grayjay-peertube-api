@@ -93,7 +93,8 @@ public class PluginConfigService : IPluginConfigService
             Constants = BuildConstants(upstreamConfig.Constants, platformUrl),
 
             // Authentication with instance-specific URLs
-            Authentication = BuildAuthentication(upstreamConfig.Authentication, platformUrl)
+            Authentication = BuildAuthentication(upstreamConfig.Authentication, platformUrl),
+            AuthenticationDesktop = BuildAuthentication(upstreamConfig.AuthenticationDesktop, platformUrl)
         };
 
         return pluginConfig;

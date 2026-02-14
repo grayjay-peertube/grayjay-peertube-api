@@ -45,6 +45,9 @@ public class UpstreamPluginConfig
     [JsonPropertyName("authentication")]
     public PluginAuthentication? Authentication { get; set; }
 
+    [JsonPropertyName("authenticationDesktop")]
+    public PluginAuthentication? AuthenticationDesktop { get; set; }
+
     [JsonPropertyName("allowEval")]
     public bool? AllowEval { get; set; }
 
